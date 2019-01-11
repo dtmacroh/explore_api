@@ -1,6 +1,6 @@
 const Note = require('../models/note.model.js');
 
-// Create and Save a new Note
+// Description: Create and Save a new Note
 exports.create = (req, res) => {
 // Validate request
 if(!req.body.content) {
@@ -8,8 +8,18 @@ if(!req.body.content) {
         message: "Note content can not be empty"
     });
 }
-
-// Create a Note
+// Http Action:                 POST [@server_url]/notes
+// Input Parameters:            title, content
+// Usage:                       POST [@server_url]/notes {"title":"title-string", "content":"content-string"}
+// Output:                      JSON {
+//                                  "_id": "5c387220379cd41cfcd5f948",
+//                                  "title": "bobs",
+//                                  "content": "Your aunt",
+//                                  "createdAt": "2019-01-11T10:38:24.705Z",
+//                                  "updatedAt": "2019-01-11T10:38:24.705Z",
+//                                  "__v": 0
+//                              }
+// Description:                 Create a Note
 const note = new Note({
         title: req.body.title || "Untitled Note", 
         content: req.body.content
@@ -26,6 +36,9 @@ const note = new Note({
     });
 };
 
+// Http Action: GET [@server_url]/notes
+// Input: none
+// Usage: 
 // Retrieve and return all notes from the database.
 exports.findAll = (req, res) => {
     Note.find()
