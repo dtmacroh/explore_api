@@ -8,7 +8,7 @@ if(!req.body.content) {
         message: "Note content can not be empty"
     });
 }
-// Http Action:                 POST [@server_url]/notes
+// Http Action:                 POST 
 // Input Parameters:            title, content
 // Usage:                       POST [@server_url]/notes {"title":"title-string", "content":"content-string"}
 // Output:                      JSON {
@@ -36,9 +36,9 @@ const note = new Note({
     });
 };
 
-// Http Action: GET [@server_url]/notes
+// Http Action: GET 
 // Input: none
-// Usage: 
+// Usage: GET [@server_url]/notes 
 // Retrieve and return all notes from the database.
 exports.findAll = (req, res) => {
     Note.find()
