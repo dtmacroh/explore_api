@@ -32,6 +32,7 @@ app.get('/*', (req, res) => {
     const indexPath = path.resolve(__dirname, 'index.html');
      res.sendFile(indexPath);
 });
+//app.use()
 
 
 // Require Notes routes
