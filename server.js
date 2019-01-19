@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 // create express app
 const app = express();
 
-app.use(express.static(__dirname + '/'));
+//app.use(express.static(__dirname + '/'));
 
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }))
@@ -28,9 +28,9 @@ mongoose.connect(dbConfig.url, {
 });
 // define a simple route
 app.get('/*', (req, res) => {
-    //res.json({"message": "Welcome to EasyNotes application. Take notes quickly. Organize and keep track of all your notes."});
-    const indexPath = path.resolve(__dirname, 'index.html');
-     res.sendFile(indexPath);
+    res.json({"message": "Welcome to EasyNotes application. Take notes quickly. Organize and keep track of all your notes."});
+    //const indexPath = path.resolve(__dirname, 'index.html');
+    // res.sendFile(indexPath);
 });
 //app.use()
 
